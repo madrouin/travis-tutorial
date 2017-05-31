@@ -19,7 +19,7 @@ def test_partition():
     a = np.array([3, 4, 2, 1])
 
     try:
-        res = np.partition(a, 3)
+        res = np.partition(a, 1)
     except:
         res = np.sort(a)
 
