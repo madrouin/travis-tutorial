@@ -15,12 +15,14 @@ def test_division():
     assert 3/2 == 1.5
 
 
-def test_partition():
-    a = np.array([3, 4, 2, 1])
-
+def partition_wrapper(arr, kth):
     try:
-        res = np.partition(a, 1)
-    except:
-        res = np.sort(a)
+        return np.partition(arr, kth)
+    except AttributeError:
+        return np.sort(arr)
 
-    assert (res == np.array([1, 2, 3, 4])).all()
+
+def test_partition():
+    input_array = np.array([-10, 3, 1, 5, -7])
+    partitioned_array = partition_wrapper(input_array, 2)
+assert partitioned_array[2] == 1
