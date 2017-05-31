@@ -23,4 +23,4 @@ def test_partition():
     except:
         res = np.sort(a)
 
-    assert (res == np.array([2, 1, 3, 4])).all()
+    assert (res == np.array([1, 2, 3, 4])).all()
