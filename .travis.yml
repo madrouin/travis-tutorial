@@ -1,17 +1,20 @@
-env:
-  - NUMPY_VERSION=1.7.1
-  - NUMPY_VERSION=1.12.1
-
-install: pip install numpy==$NUMPY_VERSION
-
 language: python
 
 dist: trusty
-
-script: py.test
 
 python:
   - 2.7
   - 3.6
 
+matrix:
+  include:
+  - python: "2.7"
+    env: NUMPY_VERSION=1.7.1
+  - python: "3.6"
+    env: NUMPY_VERSION=1.12.1
+
 cache: ~/.pip/cache
+
+install: pip install numpy==$NUMPY_VERSION
+
+script: py.test
